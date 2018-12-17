@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            .out{
+                background-color: rosybrown;
+                
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="2" styleClass="out">
+                    <f:facet name="header">
+                        <h:outputText value="Datadisplay"></h:outputText>
+                        
+                    </f:facet>
+                    <h:outputLabel>  origination :</h:outputLabel>
+                  <h:outputText value="#{flightSearchCon.flight.origination}"></h:outputText>
+                      <h:outputLabel>  departDate : </h:outputLabel>
+                    <h:outputText value="#{flightSearchCon.flight.departDate}"></h:outputText>
+                    <h:outputLabel>  departTime :</h:outputLabel>
+                    <h:outputText value="#{flightSearchCon.flight.departTime}"></h:outputText>
+                    <h:outputLabel>  destination :</h:outputLabel>
+                   <h:outputText value="#{flightSearchCon.flight.destination}"></h:outputText>
+                    <h:outputLabel>  returnDate :</h:outputLabel>
+                   <h:outputText value="#{flightSearchCon.flight.returnDate}"></h:outputText>
+                    <h:outputLabel>  returnTime :</h:outputLabel>
+                    <h:outputText value="#{flightSearchCon.flight.returnTime}"></h:outputText>
+                    
+                    </h:panelGrid>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
