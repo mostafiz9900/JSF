@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDbTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDbLabel_dbPK_db}" for="dbPK_db" />
+                    <h:inputText id="dbPK_db" value="#{dbController.selected.dbPK.db}" title="#{bundle.CreateDbTitle_dbPK_db}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_dbPK_db}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_dbPK_host}" for="dbPK_host" />
+                    <h:inputText id="dbPK_host" value="#{dbController.selected.dbPK.host}" title="#{bundle.CreateDbTitle_dbPK_host}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_dbPK_host}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_dbPK_user}" for="dbPK_user" />
+                    <h:inputText id="dbPK_user" value="#{dbController.selected.dbPK.user}" title="#{bundle.CreateDbTitle_dbPK_user}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_dbPK_user}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_selectpriv}" for="selectpriv" />
+                    <h:inputText id="selectpriv" value="#{dbController.selected.selectpriv}" title="#{bundle.CreateDbTitle_selectpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_selectpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_insertpriv}" for="insertpriv" />
+                    <h:inputText id="insertpriv" value="#{dbController.selected.insertpriv}" title="#{bundle.CreateDbTitle_insertpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_insertpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_updatepriv}" for="updatepriv" />
+                    <h:inputText id="updatepriv" value="#{dbController.selected.updatepriv}" title="#{bundle.CreateDbTitle_updatepriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_updatepriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_deletepriv}" for="deletepriv" />
+                    <h:inputText id="deletepriv" value="#{dbController.selected.deletepriv}" title="#{bundle.CreateDbTitle_deletepriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_deletepriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_createpriv}" for="createpriv" />
+                    <h:inputText id="createpriv" value="#{dbController.selected.createpriv}" title="#{bundle.CreateDbTitle_createpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_createpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_droppriv}" for="droppriv" />
+                    <h:inputText id="droppriv" value="#{dbController.selected.droppriv}" title="#{bundle.CreateDbTitle_droppriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_droppriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_grantpriv}" for="grantpriv" />
+                    <h:inputText id="grantpriv" value="#{dbController.selected.grantpriv}" title="#{bundle.CreateDbTitle_grantpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_grantpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_referencespriv}" for="referencespriv" />
+                    <h:inputText id="referencespriv" value="#{dbController.selected.referencespriv}" title="#{bundle.CreateDbTitle_referencespriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_referencespriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_indexpriv}" for="indexpriv" />
+                    <h:inputText id="indexpriv" value="#{dbController.selected.indexpriv}" title="#{bundle.CreateDbTitle_indexpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_indexpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_alterpriv}" for="alterpriv" />
+                    <h:inputText id="alterpriv" value="#{dbController.selected.alterpriv}" title="#{bundle.CreateDbTitle_alterpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_alterpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_createtmptablepriv}" for="createtmptablepriv" />
+                    <h:inputText id="createtmptablepriv" value="#{dbController.selected.createtmptablepriv}" title="#{bundle.CreateDbTitle_createtmptablepriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_createtmptablepriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_locktablespriv}" for="locktablespriv" />
+                    <h:inputText id="locktablespriv" value="#{dbController.selected.locktablespriv}" title="#{bundle.CreateDbTitle_locktablespriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_locktablespriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_createviewpriv}" for="createviewpriv" />
+                    <h:inputText id="createviewpriv" value="#{dbController.selected.createviewpriv}" title="#{bundle.CreateDbTitle_createviewpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_createviewpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_showviewpriv}" for="showviewpriv" />
+                    <h:inputText id="showviewpriv" value="#{dbController.selected.showviewpriv}" title="#{bundle.CreateDbTitle_showviewpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_showviewpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_createroutinepriv}" for="createroutinepriv" />
+                    <h:inputText id="createroutinepriv" value="#{dbController.selected.createroutinepriv}" title="#{bundle.CreateDbTitle_createroutinepriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_createroutinepriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_alterroutinepriv}" for="alterroutinepriv" />
+                    <h:inputText id="alterroutinepriv" value="#{dbController.selected.alterroutinepriv}" title="#{bundle.CreateDbTitle_alterroutinepriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_alterroutinepriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_executepriv}" for="executepriv" />
+                    <h:inputText id="executepriv" value="#{dbController.selected.executepriv}" title="#{bundle.CreateDbTitle_executepriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_executepriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_eventpriv}" for="eventpriv" />
+                    <h:inputText id="eventpriv" value="#{dbController.selected.eventpriv}" title="#{bundle.CreateDbTitle_eventpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_eventpriv}"/>
+                    <h:outputLabel value="#{bundle.CreateDbLabel_triggerpriv}" for="triggerpriv" />
+                    <h:inputText id="triggerpriv" value="#{dbController.selected.triggerpriv}" title="#{bundle.CreateDbTitle_triggerpriv}" required="true" requiredMessage="#{bundle.CreateDbRequiredMessage_triggerpriv}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{dbController.create}" value="#{bundle.CreateDbSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{dbController.prepareList}" value="#{bundle.CreateDbShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDbIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

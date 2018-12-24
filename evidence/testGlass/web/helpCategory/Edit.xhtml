@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditHelpCategoryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditHelpCategoryLabel_helpCategoryId}" for="helpCategoryId" />
+                    <h:inputText id="helpCategoryId" value="#{helpCategoryController.selected.helpCategoryId}" title="#{bundle.EditHelpCategoryTitle_helpCategoryId}" required="true" requiredMessage="#{bundle.EditHelpCategoryRequiredMessage_helpCategoryId}"/>
+                    <h:outputLabel value="#{bundle.EditHelpCategoryLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{helpCategoryController.selected.name}" title="#{bundle.EditHelpCategoryTitle_name}" required="true" requiredMessage="#{bundle.EditHelpCategoryRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditHelpCategoryLabel_parentCategoryId}" for="parentCategoryId" />
+                    <h:inputText id="parentCategoryId" value="#{helpCategoryController.selected.parentCategoryId}" title="#{bundle.EditHelpCategoryTitle_parentCategoryId}" />
+                    <h:outputLabel value="#{bundle.EditHelpCategoryLabel_url}" for="url" />
+                    <h:inputTextarea rows="4" cols="30" id="url" value="#{helpCategoryController.selected.url}" title="#{bundle.EditHelpCategoryTitle_url}" required="true" requiredMessage="#{bundle.EditHelpCategoryRequiredMessage_url}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{helpCategoryController.update}" value="#{bundle.EditHelpCategorySaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditHelpCategoryViewLink}"/>
+                <br />
+                <h:commandLink action="#{helpCategoryController.prepareList}" value="#{bundle.EditHelpCategoryShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditHelpCategoryIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

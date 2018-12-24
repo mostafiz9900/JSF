@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProductTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProductLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{productController.selected.id}" title="#{bundle.CreateProductTitle_id}" required="true" requiredMessage="#{bundle.CreateProductRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateProductLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{productController.selected.name}" title="#{bundle.CreateProductTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateProductLabel_qty}" for="qty" />
+                    <h:inputText id="qty" value="#{productController.selected.qty}" title="#{bundle.CreateProductTitle_qty}" />
+                    <h:outputLabel value="#{bundle.CreateProductLabel_unityPrice}" for="unityPrice" />
+                    <h:inputText id="unityPrice" value="#{productController.selected.unityPrice}" title="#{bundle.CreateProductTitle_unityPrice}" />
+                    <h:outputLabel value="#{bundle.CreateProductLabel_totalPrice}" for="totalPrice" />
+                    <h:inputText id="totalPrice" value="#{productController.selected.totalPrice}" title="#{bundle.CreateProductTitle_totalPrice}" />
+                    <h:outputLabel value="#{bundle.CreateProductLabel_purchaseDate}" for="purchaseDate" />
+                    <h:inputText id="purchaseDate" value="#{productController.selected.purchaseDate}" title="#{bundle.CreateProductTitle_purchaseDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateProductLabel_catId}" for="catId" />
+                    <h:selectOneMenu id="catId" value="#{productController.selected.catId}" title="#{bundle.CreateProductTitle_catId}" >
+                        <f:selectItems value="#{categoryController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productController.create}" value="#{bundle.CreateProductSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{productController.prepareList}" value="#{bundle.CreateProductShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProductIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

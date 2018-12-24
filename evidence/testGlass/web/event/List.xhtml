@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEventTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEventEmpty}" rendered="#{eventController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{eventController.items.rowCount > 0}">
+                    <h:outputText value="#{eventController.pagination.pageFirstItem + 1}..#{eventController.pagination.pageLastItem + 1}/#{eventController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{eventController.previous}" value="#{bundle.Previous} #{eventController.pagination.pageSize}" rendered="#{eventController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{eventController.next}" value="#{bundle.Next} #{eventController.pagination.pageSize}" rendered="#{eventController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{eventController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_eventPK_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.eventPK.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_eventPK_db}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.eventPK.db}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_body}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.body}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_definer}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.definer}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_executeAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.executeAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_intervalValue}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.intervalValue}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_intervalField}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.intervalField}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_modified}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modified}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_lastExecuted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lastExecuted}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_starts}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.starts}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_ends}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ends}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_status}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_onCompletion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.onCompletion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_sqlMode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sqlMode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_comment}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comment}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_originator}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.originator}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_timeZone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.timeZone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_characterSetClient}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.characterSetClient}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_collationConnection}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.collationConnection}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_dbCollation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dbCollation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventTitle_bodyUtf8}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bodyUtf8}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{eventController.prepareView}" value="#{bundle.ListEventViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{eventController.prepareEdit}" value="#{bundle.ListEventEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{eventController.destroy}" value="#{bundle.ListEventDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{eventController.prepareCreate}" value="#{bundle.ListEventCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEventIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

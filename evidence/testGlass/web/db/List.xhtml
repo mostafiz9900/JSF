@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDbTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDbEmpty}" rendered="#{dbController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{dbController.items.rowCount > 0}">
+                    <h:outputText value="#{dbController.pagination.pageFirstItem + 1}..#{dbController.pagination.pageLastItem + 1}/#{dbController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{dbController.previous}" value="#{bundle.Previous} #{dbController.pagination.pageSize}" rendered="#{dbController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{dbController.next}" value="#{bundle.Next} #{dbController.pagination.pageSize}" rendered="#{dbController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{dbController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_dbPK_user}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dbPK.user}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_dbPK_db}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dbPK.db}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_dbPK_host}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dbPK.host}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_selectpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.selectpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_insertpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.insertpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_updatepriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.updatepriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_deletepriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deletepriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_createpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_droppriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.droppriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_grantpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.grantpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_referencespriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.referencespriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_indexpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.indexpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_alterpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alterpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_createtmptablepriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createtmptablepriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_locktablespriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.locktablespriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_createviewpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createviewpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_showviewpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.showviewpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_createroutinepriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createroutinepriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_alterroutinepriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alterroutinepriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_executepriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.executepriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_eventpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.eventpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDbTitle_triggerpriv}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.triggerpriv}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{dbController.prepareView}" value="#{bundle.ListDbViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{dbController.prepareEdit}" value="#{bundle.ListDbEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{dbController.destroy}" value="#{bundle.ListDbDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{dbController.prepareCreate}" value="#{bundle.ListDbCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDbIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

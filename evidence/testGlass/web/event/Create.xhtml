@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEventTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEventLabel_eventPK_db}" for="eventPK_db" />
+                    <h:inputText id="eventPK_db" value="#{eventController.selected.eventPK.db}" title="#{bundle.CreateEventTitle_eventPK_db}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_eventPK_db}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_eventPK_name}" for="eventPK_name" />
+                    <h:inputText id="eventPK_name" value="#{eventController.selected.eventPK.name}" title="#{bundle.CreateEventTitle_eventPK_name}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_eventPK_name}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_body}" for="body" />
+                    <h:inputTextarea rows="4" cols="30" id="body" value="#{eventController.selected.body}" title="#{bundle.CreateEventTitle_body}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_body}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_definer}" for="definer" />
+                    <h:inputText id="definer" value="#{eventController.selected.definer}" title="#{bundle.CreateEventTitle_definer}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_definer}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_executeAt}" for="executeAt" />
+                    <h:inputText id="executeAt" value="#{eventController.selected.executeAt}" title="#{bundle.CreateEventTitle_executeAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_intervalValue}" for="intervalValue" />
+                    <h:inputText id="intervalValue" value="#{eventController.selected.intervalValue}" title="#{bundle.CreateEventTitle_intervalValue}" />
+                    <h:outputLabel value="#{bundle.CreateEventLabel_intervalField}" for="intervalField" />
+                    <h:inputText id="intervalField" value="#{eventController.selected.intervalField}" title="#{bundle.CreateEventTitle_intervalField}" />
+                    <h:outputLabel value="#{bundle.CreateEventLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{eventController.selected.created}" title="#{bundle.CreateEventTitle_created}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_modified}" for="modified" />
+                    <h:inputText id="modified" value="#{eventController.selected.modified}" title="#{bundle.CreateEventTitle_modified}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_modified}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_lastExecuted}" for="lastExecuted" />
+                    <h:inputText id="lastExecuted" value="#{eventController.selected.lastExecuted}" title="#{bundle.CreateEventTitle_lastExecuted}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_starts}" for="starts" />
+                    <h:inputText id="starts" value="#{eventController.selected.starts}" title="#{bundle.CreateEventTitle_starts}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_ends}" for="ends" />
+                    <h:inputText id="ends" value="#{eventController.selected.ends}" title="#{bundle.CreateEventTitle_ends}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{eventController.selected.status}" title="#{bundle.CreateEventTitle_status}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_onCompletion}" for="onCompletion" />
+                    <h:inputText id="onCompletion" value="#{eventController.selected.onCompletion}" title="#{bundle.CreateEventTitle_onCompletion}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_onCompletion}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_sqlMode}" for="sqlMode" />
+                    <h:inputText id="sqlMode" value="#{eventController.selected.sqlMode}" title="#{bundle.CreateEventTitle_sqlMode}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_sqlMode}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{eventController.selected.comment}" title="#{bundle.CreateEventTitle_comment}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_comment}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_originator}" for="originator" />
+                    <h:inputText id="originator" value="#{eventController.selected.originator}" title="#{bundle.CreateEventTitle_originator}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_originator}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_timeZone}" for="timeZone" />
+                    <h:inputText id="timeZone" value="#{eventController.selected.timeZone}" title="#{bundle.CreateEventTitle_timeZone}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_timeZone}"/>
+                    <h:outputLabel value="#{bundle.CreateEventLabel_characterSetClient}" for="characterSetClient" />
+                    <h:inputText id="characterSetClient" value="#{eventController.selected.characterSetClient}" title="#{bundle.CreateEventTitle_characterSetClient}" />
+                    <h:outputLabel value="#{bundle.CreateEventLabel_collationConnection}" for="collationConnection" />
+                    <h:inputText id="collationConnection" value="#{eventController.selected.collationConnection}" title="#{bundle.CreateEventTitle_collationConnection}" />
+                    <h:outputLabel value="#{bundle.CreateEventLabel_dbCollation}" for="dbCollation" />
+                    <h:inputText id="dbCollation" value="#{eventController.selected.dbCollation}" title="#{bundle.CreateEventTitle_dbCollation}" />
+                    <h:outputLabel value="#{bundle.CreateEventLabel_bodyUtf8}" for="bodyUtf8" />
+                    <h:inputTextarea rows="4" cols="30" id="bodyUtf8" value="#{eventController.selected.bodyUtf8}" title="#{bundle.CreateEventTitle_bodyUtf8}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{eventController.create}" value="#{bundle.CreateEventSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{eventController.prepareList}" value="#{bundle.CreateEventShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEventIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEventTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEventLabel_eventPK_db}"/>
+                    <h:outputText value="#{eventController.selected.eventPK.db}" title="#{bundle.ViewEventTitle_eventPK_db}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_eventPK_name}"/>
+                    <h:outputText value="#{eventController.selected.eventPK.name}" title="#{bundle.ViewEventTitle_eventPK_name}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_body}"/>
+                    <h:outputText value="#{eventController.selected.body}" title="#{bundle.ViewEventTitle_body}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_definer}"/>
+                    <h:outputText value="#{eventController.selected.definer}" title="#{bundle.ViewEventTitle_definer}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_executeAt}"/>
+                    <h:outputText value="#{eventController.selected.executeAt}" title="#{bundle.ViewEventTitle_executeAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEventLabel_intervalValue}"/>
+                    <h:outputText value="#{eventController.selected.intervalValue}" title="#{bundle.ViewEventTitle_intervalValue}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_intervalField}"/>
+                    <h:outputText value="#{eventController.selected.intervalField}" title="#{bundle.ViewEventTitle_intervalField}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_created}"/>
+                    <h:outputText value="#{eventController.selected.created}" title="#{bundle.ViewEventTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEventLabel_modified}"/>
+                    <h:outputText value="#{eventController.selected.modified}" title="#{bundle.ViewEventTitle_modified}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEventLabel_lastExecuted}"/>
+                    <h:outputText value="#{eventController.selected.lastExecuted}" title="#{bundle.ViewEventTitle_lastExecuted}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEventLabel_starts}"/>
+                    <h:outputText value="#{eventController.selected.starts}" title="#{bundle.ViewEventTitle_starts}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEventLabel_ends}"/>
+                    <h:outputText value="#{eventController.selected.ends}" title="#{bundle.ViewEventTitle_ends}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEventLabel_status}"/>
+                    <h:outputText value="#{eventController.selected.status}" title="#{bundle.ViewEventTitle_status}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_onCompletion}"/>
+                    <h:outputText value="#{eventController.selected.onCompletion}" title="#{bundle.ViewEventTitle_onCompletion}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_sqlMode}"/>
+                    <h:outputText value="#{eventController.selected.sqlMode}" title="#{bundle.ViewEventTitle_sqlMode}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_comment}"/>
+                    <h:outputText value="#{eventController.selected.comment}" title="#{bundle.ViewEventTitle_comment}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_originator}"/>
+                    <h:outputText value="#{eventController.selected.originator}" title="#{bundle.ViewEventTitle_originator}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_timeZone}"/>
+                    <h:outputText value="#{eventController.selected.timeZone}" title="#{bundle.ViewEventTitle_timeZone}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_characterSetClient}"/>
+                    <h:outputText value="#{eventController.selected.characterSetClient}" title="#{bundle.ViewEventTitle_characterSetClient}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_collationConnection}"/>
+                    <h:outputText value="#{eventController.selected.collationConnection}" title="#{bundle.ViewEventTitle_collationConnection}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_dbCollation}"/>
+                    <h:outputText value="#{eventController.selected.dbCollation}" title="#{bundle.ViewEventTitle_dbCollation}"/>
+                    <h:outputText value="#{bundle.ViewEventLabel_bodyUtf8}"/>
+                    <h:outputText value="#{eventController.selected.bodyUtf8}" title="#{bundle.ViewEventTitle_bodyUtf8}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{eventController.destroyAndView}" value="#{bundle.ViewEventDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEventEditLink}"/>
+                <br />
+                <h:commandLink action="#{eventController.prepareCreate}" value="#{bundle.ViewEventCreateLink}" />
+                <br />
+                <h:commandLink action="#{eventController.prepareList}" value="#{bundle.ViewEventShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEventIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDbTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDbLabel_dbPK_db}"/>
+                    <h:outputText value="#{dbController.selected.dbPK.db}" title="#{bundle.ViewDbTitle_dbPK_db}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_dbPK_host}"/>
+                    <h:outputText value="#{dbController.selected.dbPK.host}" title="#{bundle.ViewDbTitle_dbPK_host}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_dbPK_user}"/>
+                    <h:outputText value="#{dbController.selected.dbPK.user}" title="#{bundle.ViewDbTitle_dbPK_user}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_selectpriv}"/>
+                    <h:outputText value="#{dbController.selected.selectpriv}" title="#{bundle.ViewDbTitle_selectpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_insertpriv}"/>
+                    <h:outputText value="#{dbController.selected.insertpriv}" title="#{bundle.ViewDbTitle_insertpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_updatepriv}"/>
+                    <h:outputText value="#{dbController.selected.updatepriv}" title="#{bundle.ViewDbTitle_updatepriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_deletepriv}"/>
+                    <h:outputText value="#{dbController.selected.deletepriv}" title="#{bundle.ViewDbTitle_deletepriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_createpriv}"/>
+                    <h:outputText value="#{dbController.selected.createpriv}" title="#{bundle.ViewDbTitle_createpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_droppriv}"/>
+                    <h:outputText value="#{dbController.selected.droppriv}" title="#{bundle.ViewDbTitle_droppriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_grantpriv}"/>
+                    <h:outputText value="#{dbController.selected.grantpriv}" title="#{bundle.ViewDbTitle_grantpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_referencespriv}"/>
+                    <h:outputText value="#{dbController.selected.referencespriv}" title="#{bundle.ViewDbTitle_referencespriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_indexpriv}"/>
+                    <h:outputText value="#{dbController.selected.indexpriv}" title="#{bundle.ViewDbTitle_indexpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_alterpriv}"/>
+                    <h:outputText value="#{dbController.selected.alterpriv}" title="#{bundle.ViewDbTitle_alterpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_createtmptablepriv}"/>
+                    <h:outputText value="#{dbController.selected.createtmptablepriv}" title="#{bundle.ViewDbTitle_createtmptablepriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_locktablespriv}"/>
+                    <h:outputText value="#{dbController.selected.locktablespriv}" title="#{bundle.ViewDbTitle_locktablespriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_createviewpriv}"/>
+                    <h:outputText value="#{dbController.selected.createviewpriv}" title="#{bundle.ViewDbTitle_createviewpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_showviewpriv}"/>
+                    <h:outputText value="#{dbController.selected.showviewpriv}" title="#{bundle.ViewDbTitle_showviewpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_createroutinepriv}"/>
+                    <h:outputText value="#{dbController.selected.createroutinepriv}" title="#{bundle.ViewDbTitle_createroutinepriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_alterroutinepriv}"/>
+                    <h:outputText value="#{dbController.selected.alterroutinepriv}" title="#{bundle.ViewDbTitle_alterroutinepriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_executepriv}"/>
+                    <h:outputText value="#{dbController.selected.executepriv}" title="#{bundle.ViewDbTitle_executepriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_eventpriv}"/>
+                    <h:outputText value="#{dbController.selected.eventpriv}" title="#{bundle.ViewDbTitle_eventpriv}"/>
+                    <h:outputText value="#{bundle.ViewDbLabel_triggerpriv}"/>
+                    <h:outputText value="#{dbController.selected.triggerpriv}" title="#{bundle.ViewDbTitle_triggerpriv}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{dbController.destroyAndView}" value="#{bundle.ViewDbDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDbEditLink}"/>
+                <br />
+                <h:commandLink action="#{dbController.prepareCreate}" value="#{bundle.ViewDbCreateLink}" />
+                <br />
+                <h:commandLink action="#{dbController.prepareList}" value="#{bundle.ViewDbShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDbIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
