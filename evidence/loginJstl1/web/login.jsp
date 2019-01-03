@@ -16,7 +16,7 @@
         <h1>Please Login</h1>
         <form action="authentication">
             User Name : <input type="text" name="username">
-            PassWord : <input type="password" name="psw">
+            PassWord : <input type="password" name="password">
             <input type="submit" value="Login">
         </form>
         <font color="red">

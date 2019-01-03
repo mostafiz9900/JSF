@@ -1,6 +1,6 @@
 <%-- 
     Document   : login
-    Created on : Jan 3, 2019, 5:19:57 PM
+    Created on : Jan 3, 2019, 8:16:59 PM
     Author     : Mostafizur
 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -9,19 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>login Page</title>
+        <title>Login  Page</title>
     </head>
     <body>
-        <h1>Please login World!</h1>
+        <h1>Please Login </h1>
         <form action="authentic.jsp" method="post">
-            UserName : <input type="text" name="username"><br>
-            Password : <input type="password"  name="password"><br>
+            Username : <input type="text" name="username">
+            Password : <input type="password" name="password">
             <input type="submit" value="Login">
-            
         </form>
         <font color="red">
         <c:if test="${not empty param.errMsg}">
-            <c:out value="${param.errMsg}"/>
+            <c:out  value="please enter username and password"/>
         </c:if>
         </font>
     </body>
