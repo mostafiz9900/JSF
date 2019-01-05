@@ -13,14 +13,16 @@
     </head>
     <body>
         <h1>Please Login!</h1>
-        <form action="authentic.jsp">
+        <form action="authentic.jsp" method="post">
             User Name : <input type="text" name="username">
             Password : <input type="password" name="password">
             <input type="submit" value="Login">
             
         </form>
         <font color="red">
-        <c:if test="${not empty param.errMsg}"></c:if>
+        <c:if test="${not empty param.errMsg}">
+            <c:out value="Please Enter Your Username and Password"/>
+        </c:if>
         </font>
     </body>
 </html>
