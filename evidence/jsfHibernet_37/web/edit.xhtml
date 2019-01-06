@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <h:form id="form1">
+            Id :<h:inputText value="#{studentBean.student.id}"></h:inputText>
+            <p:commandButton action="#{studentBean.searchById()}" value="Edit"></p:commandButton>
+        </h:form>
+        
+        
+       
+            <h:form id="form2">
+                Id :<h:inputText value="#{studentBean.student.id}"></h:inputText>
+                Name:<h:inputText value="#{studentBean.student.name}"></h:inputText>
+                Round:
+                <h:selectOneMenu value="#{studentBean.student.round}">
+                    <f:selectItem itemValue="" itemLabel="Select A Round"></f:selectItem>
+                    <f:selectItem itemValue="37" itemLabel="Round-37"></f:selectItem>
+                    <f:selectItem itemValue="38" itemLabel="Round-38"></f:selectItem>
+                    <f:selectItem itemValue="39" itemLabel="Round-39"></f:selectItem>
+                </h:selectOneMenu> 
+                :Course Completed :
+                <h:selectManyCheckbox value="#{studentBean.courseCompleted}">
+                    <f:selectItem itemValue="ppt" itemLabel="PPT"></f:selectItem>
+                    <f:selectItem itemValue="java" itemLabel="JAVA"></f:selectItem>
+                    <f:selectItem itemValue="js" itemLabel="JS"></f:selectItem>
+                </h:selectManyCheckbox>
+                <h:selectOneRadio value="#{studentBean.student.gender}">
+                    <f:selectItem itemValue="mail" itemLabel="Mail"></f:selectItem>
+                    <f:selectItem itemValue="fimail" itemLabel="Femail"></f:selectItem>
+                </h:selectOneRadio>
+                Message :
+                <h:inputTextarea value="#{studentBean.student.msg}"></h:inputTextarea>
+                
+                <h:commandButton action="#{studentBean.save()}" value="Submit"></h:commandButton>
+                
+            </h:form>
+        
+       
+    </h:body>
+</html>
+
