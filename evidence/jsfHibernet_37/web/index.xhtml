@@ -6,6 +6,12 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <style>
+            .hh{
+                background-color: gray;
+
+            }
+        </style>
     </h:head>
     <h:body>
         Hello from Facelets
@@ -13,29 +19,44 @@
         
         <f:view>
             <h:form>
-                Name:<h:inputText value="#{studentBean.student.name}"></h:inputText>
-                Round:
+                <h:panelGrid columns="2" styleClass="hh">
+                    <f:facet name="header">
+                        <h:outputLabel value="Data Display"></h:outputLabel>
+                    </f:facet>
+                    <h:outputLabel>Name :</h:outputLabel>
+                <h:inputText value="#{studentBean.student.name}"></h:inputText>
+                
+                <h:outputLabel>Round :</h:outputLabel>
                 <h:selectOneMenu value="#{studentBean.student.round}">
                     <f:selectItem itemValue="" itemLabel="Select A Round"></f:selectItem>
                     <f:selectItem itemValue="37" itemLabel="Round-37"></f:selectItem>
                     <f:selectItem itemValue="38" itemLabel="Round-38"></f:selectItem>
                     <f:selectItem itemValue="39" itemLabel="Round-39"></f:selectItem>
                 </h:selectOneMenu> 
-                :Course Completed :
+              
+                <h:outputLabel>  Course Completed :</h:outputLabel>
                 <h:selectManyCheckbox value="#{studentBean.courseCompleted}">
                     <f:selectItem itemValue="ppt" itemLabel="PPT"></f:selectItem>
                     <f:selectItem itemValue="java" itemLabel="JAVA"></f:selectItem>
                     <f:selectItem itemValue="js" itemLabel="JS"></f:selectItem>
                 </h:selectManyCheckbox>
+                <h:outputLabel>Gender :</h:outputLabel>
                 <h:selectOneRadio value="#{studentBean.student.gender}">
                     <f:selectItem itemValue="mail" itemLabel="Mail"></f:selectItem>
                     <f:selectItem itemValue="fimail" itemLabel="Femail"></f:selectItem>
                 </h:selectOneRadio>
-                Message :
+                
+                <h:outputLabel>Message :</h:outputLabel>
                 <h:inputTextarea value="#{studentBean.student.msg}"></h:inputTextarea>
                 
+                <h:outputLabel>Click :</h:outputLabel>
                 <h:commandButton action="#{studentBean.save()}" value="Submit"></h:commandButton>
                 
+                
+                 </h:panelGrid>
+                <h:commandButton action="index.xhtml" value="Save"></h:commandButton>
+                <h:commandButton action="edit.xhtml" value="Update"></h:commandButton>
+                <h:commandButton action="delete.xhtml" value="Delete"></h:commandButton>
             </h:form>
         </f:view>
         <br />

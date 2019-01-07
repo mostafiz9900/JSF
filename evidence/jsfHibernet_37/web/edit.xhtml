@@ -6,44 +6,96 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <style>
+            .hh{
+                background-color: gray;
+
+            }
+        </style>
     </h:head>
     <h:body>
         Hello from Facelets
         <h:form id="form1">
-            Id :<h:inputText value="#{studentBean.student.id}"></h:inputText>
-            <p:commandButton action="#{studentBean.searchById()}" value="Edit"></p:commandButton>
+            <h:panelGrid columns="2" styleClass="hh">
+                <f:facet name="header">
+                    <h:outputLabel value="Data Display"></h:outputLabel>
+                </f:facet>
+                <h:outputLabel>Id :</h:outputLabel>
+                <h:inputText value="#{studentBean.student.id}"></h:inputText>
+                <h:outputLabel>Id :</h:outputLabel>
+                <p:commandButton action="#{studentBean.searchById()}" value="Edit"></p:commandButton>
+            </h:panelGrid>
         </h:form>
-        
-        
-       
+
+
+
+        <f:view>
             <h:form id="form2">
-                Id :<h:inputText value="#{studentBean.student.id}"></h:inputText>
-                Name:<h:inputText value="#{studentBean.student.name}"></h:inputText>
-                Round:
+                <h:panelGrid columns="2" >
+                    <f:facet name="header">
+                        <h:outputLabel value="Data Display"></h:outputLabel>
+                    </f:facet>
+                    <h:outputLabel>Name :</h:outputLabel>
+                <h:inputText value="#{studentBean.student.name}"></h:inputText>
+                
+                <h:outputLabel>Round :</h:outputLabel>
                 <h:selectOneMenu value="#{studentBean.student.round}">
                     <f:selectItem itemValue="" itemLabel="Select A Round"></f:selectItem>
                     <f:selectItem itemValue="37" itemLabel="Round-37"></f:selectItem>
                     <f:selectItem itemValue="38" itemLabel="Round-38"></f:selectItem>
                     <f:selectItem itemValue="39" itemLabel="Round-39"></f:selectItem>
                 </h:selectOneMenu> 
-                :Course Completed :
+              
+                <h:outputLabel>  Course Completed :</h:outputLabel>
                 <h:selectManyCheckbox value="#{studentBean.courseCompleted}">
                     <f:selectItem itemValue="ppt" itemLabel="PPT"></f:selectItem>
                     <f:selectItem itemValue="java" itemLabel="JAVA"></f:selectItem>
                     <f:selectItem itemValue="js" itemLabel="JS"></f:selectItem>
                 </h:selectManyCheckbox>
+                <h:outputLabel>Gender :</h:outputLabel>
                 <h:selectOneRadio value="#{studentBean.student.gender}">
                     <f:selectItem itemValue="mail" itemLabel="Mail"></f:selectItem>
                     <f:selectItem itemValue="fimail" itemLabel="Femail"></f:selectItem>
                 </h:selectOneRadio>
-                Message :
+                
+                <h:outputLabel>Message :</h:outputLabel>
                 <h:inputTextarea value="#{studentBean.student.msg}"></h:inputTextarea>
                 
+                <h:outputLabel>Click :</h:outputLabel>
                 <h:commandButton action="#{studentBean.save()}" value="Submit"></h:commandButton>
                 
+                
+                 </h:panelGrid>
+                <h:commandButton action="index.xhtml" value="Save"></h:commandButton>
+                <h:commandButton action="edit.xhtml" value="Update"></h:commandButton>
+                <h:commandButton action="delete.xhtml" value="Delete"></h:commandButton>
             </h:form>
+        </f:view>
         
-       
+         <p:dataTable var="s" value="#{studentBean.list}">
+            <p:column headerText="Id">
+                <h:outputText value="#{s.id}"/>
+            </p:column>
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"/>
+            </p:column>
+            <p:column headerText="Course Completed">
+                <h:outputText value="#{s.comletedCourse}"/>
+            </p:column>
+            
+            <p:column headerText="Round">
+                <h:outputText value="#{s.round}"/>
+            </p:column>
+            
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"/>
+            </p:column>
+            
+            <p:column headerText="Message">
+                <h:outputText value="#{s.msg}"/>
+            </p:column>
+        </p:dataTable>
+
     </h:body>
 </html>
 

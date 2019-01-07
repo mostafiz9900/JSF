@@ -6,14 +6,55 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <style>
+            .hh{
+                background-color: gray;
+
+            }
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        Delete Page
         <h:form id="form1">
-            Id :<h:inputText value="#{studentBean.student.id}"></h:inputText>
-            <p:commandButton action="#{studentBean.del()}" value="Delete"></p:commandButton>
+            <h:panelGrid columns="2" styleClass="hh">
+                <f:facet name="header">
+                    <h:outputLabel value="Data Display"></h:outputLabel>
+                </f:facet>
+                <h:outputLabel>Id :</h:outputLabel>
+                <h:inputText value="#{studentBean.student.id}"></h:inputText>
+                <h:outputLabel>Id :</h:outputLabel>
+                <p:commandButton action="#{studentBean.del()}" value="Delete"></p:commandButton>
+            </h:panelGrid>
+            <h:commandButton action="index.xhtml" value="Save"></h:commandButton>
+            <h:commandButton action="edit.xhtml" value="Update"></h:commandButton>
+            <h:commandButton action="delete.xhtml" value="Delete"></h:commandButton>
         </h:form>
-       
+
+        <br/>
+        <p:dataTable var="s" value="#{studentBean.list}">
+            <p:column headerText="Id">
+                <h:outputText value="#{s.id}"/>
+            </p:column>
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"/>
+            </p:column>
+            <p:column headerText="Course Completed">
+                <h:outputText value="#{s.comletedCourse}"/>
+            </p:column>
+
+            <p:column headerText="Round">
+                <h:outputText value="#{s.round}"/>
+            </p:column>
+
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"/>
+            </p:column>
+
+            <p:column headerText="Message">
+                <h:outputText value="#{s.msg}"/>
+            </p:column>
+        </p:dataTable>
+
     </h:body>
 </html>
 
